@@ -146,7 +146,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
       <Wrap>
         <WrapItem minW={questionMinW}>
           <Text pr={'12px'} fontSize={quesSize} fontWeight={'700'}>
-            <chakra.span fontSize={labelSize} color={'red'}>
+            <chakra.span fontSize={labelSize} color={'#1e81b0'}>
               {label}:{' '}
             </chakra.span>
             {question}
@@ -216,7 +216,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
               <Wrap>
                 <WrapItem minW={questionMinW}>
                   <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
-                    <chakra.span fontSize={labelSize} color={'red'}>
+                    <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 1:{' '}
                     </chakra.span>
                     Bạn thường đi ngủ lúc mấy giờ?
@@ -245,7 +245,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
               <Wrap>
                 <WrapItem minW={questionMinW}>
                   <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
-                    <chakra.span fontSize={labelSize} color={'red'}>
+                    <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 3:{' '}
                     </chakra.span>
                     Bạn thường dậy lúc mấy giờ?
@@ -265,7 +265,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
               <Wrap>
                 <WrapItem minW={questionMinW} maxW={'500px'}>
                   <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
-                    <chakra.span fontSize={labelSize} color={'red'}>
+                    <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 4:{' '}
                     </chakra.span>
                     Bạn thường ngủ bao nhiêu tiếng mỗi đêm? (tính thời gian ngủ
@@ -301,7 +301,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
               </Wrap>
               <Box>
                 <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
-                  <chakra.span fontSize={labelSize} color={'red'}>
+                  <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                     Câu 5:{' '}
                   </chakra.span>
                   Dưới đây là các vấn dề về giấc ngủ thường gặp. Bạn hãy nghĩ
@@ -375,7 +375,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                   Kết quả đánh giá
                 </TdsButton>
                 {!isValid && (
-                  <Text fontSize={'14px'} p={'8px'} color={'red'}>
+                  <Text fontSize={'14px'} p={'8px'} color={'#1e81b0'}>
                     Vui lòng hoàn thành tất cả câu hỏi
                   </Text>
                 )}

@@ -62,7 +62,7 @@ export const calculatePsqi = async answer => {
   const color = point >= 5 ? 'red' : 'green'
   const message =
     point >= 5
-      ? 'Tháng vừa qua, chất lượng giấc ngủ của bạn không tốt! Hãy tham gia Thử thách Tôi dậy sớm để có giấc ngủ tốt hơn nhé.'
+      ? 'Tháng vừa qua, chất lượng giấc ngủ của bạn không tốt!'
       : 'Tháng vừa qua, chất lượng giấc ngủ của bạn tốt! Hãy duy trì giấc ngủ hiện tại để luôn có nền tảng sức khỏe tốt nhé.'
 
   return {point, message, color, tp}

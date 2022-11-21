@@ -33,7 +33,7 @@ const PsqiSurvey = ({ auth, showModal }) => {
           spacing={'12px'}
           textAlign={'left'}
           maxW={['600px', '760px', '980px', '1040px']}>
-          <Text fontWeight={'700'} fontSize={fSizes.b18} style={{ 'color': 'red' }}>
+          <Text fontWeight={'700'} fontSize={fSizes.b18} style={{ 'color': '#873e23' }}>
             Bạn biết không, giấc ngủ có ảnh hưởng rất lớn đến sức khỏe và chất lượng cuộc sống của chúng ta! Nhưng với nhịp sống vội vã hiện nay, cộng với nhiều lý do cá nhân khác, có lẽ không phải ai cũng có được một giấc ngủ ngon lành và khỏe mạnh.
           </Text>
           <Text fontWeight={'700'} fontSize={fSizes.b18}>
@@ -53,13 +53,13 @@ const PsqiSurvey = ({ auth, showModal }) => {
             Xin cảm ơn, và chúc bạn những giấc ngủ thật ngon lành, khỏe mạnh!
           </Text>
 
-          <Box py={['16px', '36px']}>
+          {/* <Box py={['16px', '36px']}>
             <Box
               bg={'tdsBgGray'}
               borderRadius={['8px']}
               px={['30px', '60px']}
               py={['12px', '18px']}>
-              <Text pt={'24px'} color={'red'} as={'b'} fontSize={fSizes.b18}>
+              <Text pt={'24px'} color={'#063970'} as={'b'} fontSize={fSizes.b18}>
                 Hướng dẫn:{' '}
               </Text>
               <Text fontSize={fSizes.b16}>
@@ -67,8 +67,8 @@ const PsqiSurvey = ({ auth, showModal }) => {
                 vừa qua. Bạn hãy chọn các đáp án đúng với nhiều ngày nhất.
               </Text>
             </Box>
-          </Box>
-          <Text fontWeight={'700'} fontSize={fSizes.b18}>
+          </Box> */}
+          <Text fontWeight={'700'} fontSize={fSizes.b18} color={'#1e81b0'}>
             Trong tháng qua:
           </Text>
           <PsqiForm />

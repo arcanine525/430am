@@ -8,7 +8,9 @@ const Footer = ({mt = '-380px'}) => {
       w={'full'}
       mt={mt}
       justifyContent={'center'}
-      backgroundImage={['img/img_footer_mobile.png', 'img/img_footer.png']}
+      // backgroundImage={['img/img_footer_mobile.png', 'img/img_footer.png']}
+      backgroundImage={['img/footer.png']}
+
       backgroundSize={'cover'}
       backgroundPosition={'center center'}>
       <Stack
