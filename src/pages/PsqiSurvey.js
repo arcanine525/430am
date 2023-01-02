@@ -5,7 +5,7 @@ import { showModal } from '../store/actions/modal'
 import PsqiForm from '../components/forms/PsqinForm'
 import MiniHeader from '../components/MiniHeader'
 import Footer from '../components/Footer'
-import SignInForm from '../components/forms/SignInForm'
+// import SignInForm from '../components/forms/SignInForm'
 import tdsSx from '../theme/tdsSx'
 import { fSizes } from '../theme/spacing'
 
@@ -38,7 +38,7 @@ const PsqiSurvey = ({ auth, showModal }) => {
           </Text>
           <Text fontWeight={'700'} fontSize={fSizes.b18}>
             Bạn thì sao?
-            Giấc ngủ của bạn có thật sự "chất lượng”?
+            Giấc ngủ của bạn có thật sự "chất lượng"?
           </Text>
 
           <Text fontWeight={'700'} fontSize={fSizes.b18}>
@@ -46,7 +46,7 @@ const PsqiSurvey = ({ auth, showModal }) => {
           </Text>
 
           <Text fontWeight={'700'} fontSize={fSizes.b18} fontStyle='italic'>
-            Chúng mình là Như Ý và Bảo Hân, học sinh trường THPT Lương Thế Vinh, quận 1, đang thực hiện dự án "Khảo sát thực trạng và đề xuất giải pháp nâng cao chất lượng giấc ngủ của học sinh THPT tại TP.HCM”. Rất mong sau khi thực hiện bài test Pittsburgh (PSQI) này, các bạn sẽ ghi lại kết quả và tiếp tục thực hiện khảo sát của chúng mình nhé!
+            Chúng mình là Như Ý và Bảo Hân, học sinh trường THPT Lương Thế Vinh, quận 1, đang thực hiện dự án "Khảo sát thực trạng và đề xuất giải pháp nâng cao chất lượng giấc ngủ của học sinh THPT tại TP.HCM". Rất mong sau khi thực hiện bài test Pittsburgh (PSQI) này, các bạn sẽ ghi lại kết quả và tiếp tục thực hiện khảo sát của chúng mình nhé!
           </Text>
 
           <Text fontWeight={'700'} fontSize={fSizes.b18} fontStyle='italic'>
@@ -74,7 +74,7 @@ const PsqiSurvey = ({ auth, showModal }) => {
           <PsqiForm />
 
           <Text fontWeight={'700'} fontSize={fSizes.b18} style={{"text-align": 'center'}}>
-            Hãy lưu lại kết quả bài trắc nghiệm PSQI vừa rồi và tiếp tục thực hiện khảo sát với chúng mình tại đây nhé.
+            Hãy lưu lại kết quả bài trắc nghiệm PSQI vừa rồi và tiếp tục thực hiện khảo sát với chúng mình <a href='https://forms.gle/KAv5zasu4yWauqq99' style={{color: 'red'}}>tại đây</a> nhé.
           </Text>
         </Stack>
       </Box>

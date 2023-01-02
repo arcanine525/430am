@@ -140,14 +140,14 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
     c1 = 'Không lần nào',
     c2 = '1-3 lần/tháng',
     c3 = '4-8 lần/tháng',
-    c4 = '≥9 lần/tháng'
+    c4 = '≥9 lần/tháng',
   ) => {
     return (
       <Wrap>
         <WrapItem minW={questionMinW}>
           <Text pr={'12px'} fontSize={quesSize} fontWeight={'700'}>
             <chakra.span fontSize={labelSize} color={'#1e81b0'}>
-              {label}:{' '}
+              {label}{' '}
             </chakra.span>
             {question}
           </Text>
@@ -219,7 +219,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                     <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 1:{' '}
                     </chakra.span>
-                    Bạn thường đi ngủ lúc mấy giờ?
+                    Bạn thường bắt đầu đi ngủ lúc mấy giờ?
                   </Text>
                 </WrapItem>
                 <WrapItem>
@@ -235,8 +235,8 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
               </Wrap>
               {radioQuestion(
                 'q2',
-                'Câu 2',
-                'Sau khi lên giường, bạn mất bao nhiêu phút để bắt đầu ngủ?',
+                'Câu 2: ',
+                'Sau khi lên giường, bạn mất bao lâu để bắt đầu thực sự đi vào giấc ngủ?',
                 '<15 phút',
                 '16 - 30 phút',
                 '31 - 60 phút',
@@ -248,7 +248,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                     <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 3:{' '}
                     </chakra.span>
-                    Bạn thường dậy lúc mấy giờ?
+                    Bạn thường thức dậy lúc mấy giờ?
                   </Text>
                 </WrapItem>
                 <WrapItem>
@@ -268,7 +268,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                     <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 4:{' '}
                     </chakra.span>
-                    Bạn thường ngủ bao nhiêu tiếng mỗi đêm? (tính thời gian ngủ
+                    Mỗi đêm, thời gian ngủ thực sự của bạn là bao nhiêu? (tính thời gian ngủ
                     thực sự, không tính thời gian nằm trên giường nhưng thao
                     thức, dùng điện thoại,...)
                   </Text>
@@ -304,9 +304,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                   <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                     Câu 5:{' '}
                   </chakra.span>
-                  Dưới đây là các vấn dề về giấc ngủ thường gặp. Bạn hãy nghĩ
-                  lại xem trong tháng vừa qua, bạn các gặp vấn đề nào và tần
-                  suất lặp lại của từng vấn đề nhé!
+                  Dưới đây là một số vấn đề về giấc ngủ phổ biến. Trong tháng qua, bạn đã gặp các vấn đề này với mức độ thường xuyên như thế nào?
                 </Text>
                 <Stack
                   mt={['18px', '18px', '20px']}
@@ -314,47 +312,47 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                   spacing={'24px'}>
                   {radioQuestion(
                     'q5a',
-                    'A',
+                    '1)',
                     'Mất hơn 30 phút trên giường mới ngủ được'
                   )}
-                  {radioQuestion('q5b', 'B', 'Dậy giữa đêm hoặc gần sáng')}
-                  {radioQuestion('q5c', 'C', 'Dậy dùng nhà vệ sinh')}
-                  {radioQuestion('q5d', 'D', 'Thấy khó thở')}
-                  {radioQuestion('q5e', 'E', 'Ho hoặc ngáy lớn')}
-                  {radioQuestion('q5f', 'F', 'Thấy quá lạnh')}
-                  {radioQuestion('q5g', 'G', 'Thấy quá nóng')}
-                  {radioQuestion('q5h', 'H', 'Gặp ác mộng')}
+                  {radioQuestion('q5b', '2)', 'Dậy giữa đêm hoặc gần sáng')}
+                  {radioQuestion('q5c', '3)', 'Dậy dùng nhà vệ sinh')}
+                  {radioQuestion('q5d', '4)', 'Thấy khó thở')}
+                  {radioQuestion('q5e', '5)', 'Ho hoặc ngáy lớn')}
+                  {radioQuestion('q5f', '6)', 'Thấy quá lạnh')}
+                  {radioQuestion('q5g', '7)', 'Thấy quá nóng')}
+                  {radioQuestion('q5h', '8)', 'Gặp ác mộng')}
                   {radioQuestion(
                     'q5i',
-                    'I',
+                    '9)',
                     'Bị đau một bộ phận nào đó khi ngủ (lưng, gáy,...)'
                   )}
-                  {radioQuestion('q5j', 'J', 'Gặp vấn đề khác về giấc ngủ')}
+                  {radioQuestion('q5j', '10)', 'Gặp vấn đề khác về giấc ngủ')}
                 </Stack>
               </Box>
               {radioQuestion(
                 'q6',
-                'Câu 6',
-                'Trong tháng qua, bạn có phải dùng thuốc để ngủ (tây dược, đông dược,...) không?'
+                'Câu 6:',
+                'Trong tháng vừa rồi, bạn có phải dùng thuốc (đông y, tây y,...) để hỗ trợ giấc ngủ không?'
               )}
               {radioQuestion(
                 'q7',
-                'Câu 7',
-                'Trong tháng qua, bạn có mất tỉnh táo khi lái xe, ăn uống, tham gia hoạt động xã hội không?'
+                'Câu 7:',
+                'Trong tháng qua, bạn có bị mất tỉnh táo khi tham gia các hoạt động học tập, sinh hoạt, lái xe,...không?'
               )}
               {radioQuestion(
                 'q8',
-                'Câu 8',
-                'Trong tháng qua, bạn có thấy thiếu ngủ làm mất cảm hứng làm việc không?',
+                'Câu 8:',
+                'Trong tháng qua, việc thiếu ngủ có gây ảnh hưởng đến chất lượng học tập và sinh hoạt của bạn không?',
                 'Không thường gặp',
                 'Thỉnh thoảng, không phải vấn đề lớn',
-                'Cản trở làm việc một chút',
-                'Vấn đề lớn, không thể làm việc tốt được'
+                'Cản trở học tập, sinh hoạt một chút',
+                'Vấn đề lớn, không thể học tập, sinh hoạt tốt được'
               )}
               {radioQuestion(
                 'q9',
-                'Câu 9',
-                'Bạn tự đánh giá chất lượng giấc ngủ trong tháng qua thế nào?',
+                'Câu 9:',
+                'Bạn tự đánh giá chất lượng giấc ngủ của bản thân trong tháng vừa qua như thế nào?',
                 'Rất tốt',
                 'Tốt',
                 'Tệ',
