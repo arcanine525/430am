@@ -39,9 +39,9 @@ export const signUpSchema = schemaFactory({
 
 export const psqiSchema = schemaFactory({
   q1: Yup.string().required('Vui lòng chọn đáp án'),
-  q2: Yup.string().required('Vui lòng chọn đáp án'),
-  q3: Yup.string().required('Vui lòng chọn đáp án'),
-  q4: Yup.string().required('Vui lòng chọn đáp án'),
+  // q2: Yup.string().required('Vui lòng chọn đáp án'),
+  // q3: Yup.string().required('Vui lòng chọn đáp án'),
+  // q4: Yup.string().required('Vui lòng chọn đáp án'),
   q5a: Yup.string().required('Vui lòng chọn đáp án'),
   q5b: Yup.string().required('Vui lòng chọn đáp án'),
   q5c: Yup.string().required('Vui lòng chọn đáp án'),
@@ -51,9 +51,9 @@ export const psqiSchema = schemaFactory({
   q5g: Yup.string().required('Vui lòng chọn đáp án'),
   q5h: Yup.string().required('Vui lòng chọn đáp án'),
   q5i: Yup.string().required('Vui lòng chọn đáp án'),
-  q5j: Yup.string().required('Vui lòng chọn đáp án'),
-  q6: Yup.string().required('Vui lòng chọn đáp án'),
-  q7: Yup.string().required('Vui lòng chọn đáp án'),
-  q8: Yup.string().required('Vui lòng chọn đáp án'),
-  q9: Yup.string().required('Vui lòng chọn đáp án'),
+  // q5j: Yup.string().required('Vui lòng chọn đáp án'),
+  // q6: Yup.string().required('Vui lòng chọn đáp án'),
+  // q7: Yup.string().required('Vui lòng chọn đáp án'),
+  // q8: Yup.string().required('Vui lòng chọn đáp án'),
+  // q9: Yup.string().required('Vui lòng chọn đáp án'),
 })

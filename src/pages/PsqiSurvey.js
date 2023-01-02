@@ -33,48 +33,20 @@ const PsqiSurvey = ({ auth, showModal }) => {
           spacing={'12px'}
           textAlign={'left'}
           maxW={['600px', '760px', '980px', '1040px']}>
-          <Text fontWeight={'700'} fontSize={fSizes.b18} style={{ 'color': '#873e23' }}>
-            Bạn biết không, giấc ngủ có ảnh hưởng rất lớn đến sức khỏe và chất lượng cuộc sống của chúng ta! Nhưng với nhịp sống vội vã hiện nay, cộng với nhiều lý do cá nhân khác, có lẽ không phải ai cũng có được một giấc ngủ ngon lành và khỏe mạnh.
+          <Text fontWeight={'700'} fontSize={fSizes.b30} style={{ 'color': '#873e23', 'textAlign': 'center'}}>
+            DIGITAL DEMENTIA - HỘI CHỨNG MẤT TRÍ NHỚ KĨ THUẬT SỐ
           </Text>
-          <Text fontWeight={'700'} fontSize={fSizes.b18}>
-            Bạn thì sao?
-            Giấc ngủ của bạn có thật sự "chất lượng"?
-          </Text>
-
-          <Text fontWeight={'700'} fontSize={fSizes.b18}>
-            Hãy thực hiện bài trắc nghiệm đánh giá rối loạn giấc ngủ Pittsburgh (PSQI) dưới đây để hiểu thêm về tình trạng giấc ngủ của mình nhé!
+          <Text fontWeight={'700'} fontSize={fSizes.b18} fontStyle='italic' justifyContent='center'>
+            Trong thời đại 4.0, chúng ta không thể phủ nhận những tiện ích mà các thiết bị kĩ thuật số mang đến. Tuy nhiên, nếu quá lạm dụng và phụ thuộc, bạn có thể đánh mất khả năng ghi nhớ, tư duy và sáng tạo chủ động của chính mình! Nguy cơ tiềm tàng ấy chính là hội chứng Mất trí nhớ kĩ thuật số - Digital Dementia. Hãy sử dụng thiết bị kĩ thuật số một cách thông minh, để các thiết bị này trở thành người bạn đồng hành hữu ích chứ không phải thay thế hoàn toàn cho bản thân mình, bạn nhé!
           </Text>
 
-          <Text fontWeight={'700'} fontSize={fSizes.b18} fontStyle='italic'>
-            Chúng mình là Như Ý và Bảo Hân, học sinh trường THPT Lương Thế Vinh, quận 1, đang thực hiện dự án "Khảo sát thực trạng và đề xuất giải pháp nâng cao chất lượng giấc ngủ của học sinh THPT tại TP.HCM". Rất mong sau khi thực hiện bài test Pittsburgh (PSQI) này, các bạn sẽ ghi lại kết quả và tiếp tục thực hiện khảo sát của chúng mình nhé!
-          </Text>
-
-          <Text fontWeight={'700'} fontSize={fSizes.b18} fontStyle='italic'>
-            Xin cảm ơn, và chúc bạn những giấc ngủ thật ngon lành, khỏe mạnh!
-          </Text>
-
-          {/* <Box py={['16px', '36px']}>
-            <Box
-              bg={'tdsBgGray'}
-              borderRadius={['8px']}
-              px={['30px', '60px']}
-              py={['12px', '18px']}>
-              <Text pt={'24px'} color={'#063970'} as={'b'} fontSize={fSizes.b18}>
-                Hướng dẫn:{' '}
-              </Text>
-              <Text fontSize={fSizes.b16}>
-                PSQI là thang điểm đánh giá chất lượng giấc ngủ trong 1 tháng
-                vừa qua. Bạn hãy chọn các đáp án đúng với nhiều ngày nhất.
-              </Text>
-            </Box>
-          </Box> */}
-          <Text fontWeight={'700'} fontSize={fSizes.b18} color={'#1e81b0'}>
-            Trong tháng qua:
+          <Text fontWeight={'700'} fontSize={fSizes.b16} color={'#1e81b0'} textAlign='center'>
+            Hãy thực hiện bài khảo sát dưới đây để tự đánh giá mức độ phụ thuộc vào thiết bị kĩ thuật số trong việc ghi nhớ, tư duy và sáng tạo nhé!
           </Text>
           <PsqiForm />
 
           <Text fontWeight={'700'} fontSize={fSizes.b18} style={{"text-align": 'center'}}>
-            Hãy lưu lại kết quả bài trắc nghiệm PSQI vừa rồi và tiếp tục thực hiện khảo sát với chúng mình <a href='https://forms.gle/KAv5zasu4yWauqq99' style={{color: 'red'}}>tại đây</a> nhé.
+            {/* Hãy lưu lại kết quả bài trắc nghiệm PSQI vừa rồi và tiếp tục thực hiện khảo sát với chúng mình <a href='https://forms.gle/KAv5zasu4yWauqq99' style={{color: 'red'}}>tại đây</a> nhé. */}
           </Text>
         </Stack>
       </Box>

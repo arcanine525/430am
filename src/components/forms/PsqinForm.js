@@ -16,11 +16,11 @@ import {psqiSchema} from '../../lib/FormScheme'
 
 import TdsButton from '../TdsButton'
 import {hideModal, showModal} from '../../store/actions/modal'
-import SelectSleepTime from '../SelectSleepTime'
+import SelectUsageTime from '../SelectUsageTime'
+
 import RadioGroupField from '../RadioGroupField'
 import {calculatePsqi} from '../../utils/psqi'
-import SelectWakeUpTime from '../SelectWakeUpTime'
-import SelectField from '../SelectField'
+// import SelectField from '../SelectField'
 import {submitPsqi} from '../../store/actions/psqi'
 import {fSizes} from '../../theme/spacing'
 
@@ -38,9 +38,6 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
   const handleSubmit = async values => {
     const {
       q1,
-      q2,
-      q3,
-      q4,
       q5a,
       q5b,
       q5c,
@@ -50,17 +47,9 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
       q5g,
       q5h,
       q5i,
-      q5j,
-      q6,
-      q7,
-      q8,
-      q9,
     } = values || {}
     const answer = {
-      q1: Number(q1),
-      q2: Number(q2),
-      q3: Number(q3),
-      q4: Number(q4),
+      q1: String(q1),
       q5a: Number(q5a),
       q5b: Number(q5b),
       q5c: Number(q5c),
@@ -70,11 +59,6 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
       q5g: Number(q5g),
       q5h: Number(q5h),
       q5i: Number(q5i),
-      q5j: Number(q5j),
-      q6: Number(q6),
-      q7: Number(q7),
-      q8: Number(q8),
-      q9: Number(q9),
     }
     console.log('answer: ', answer)
     const result = await calculatePsqi(answer)
@@ -86,49 +70,25 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
   }
 
   const renderResult = () => {
-    const {tp, message, point, color} = result || {}
+    const {resultQ1, resultQ2, color} = result || {}
     return (
       <Box px={'12px'} mt={[20, 120]} align={'justify'} fontSize={[16, 18]}>
         <Text as={'i'} mt={'12px'}>
-          Điểm PSQI - Pittsburgh Sleep Quality Index khảo sát 7 thành phần của
-          giấc ngủ.{' '}
+          Kết quả của bạn: {' '} <br/>
           <chakra.span fontWeight={'700'}>
-            Thang điểm PSQI có kết quả từ 0 – 21 điểm với 0 là chất lượng giấc
-            ngủ tốt và 21 là chất lượng giấc ngủ cực kỳ kém.
+            {resultQ1}
+          </chakra.span>{' '} <br/>
+          <chakra.span fontWeight={'700'}>
+            {resultQ2}
           </chakra.span>{' '}
-          Một người bình thường với giấc ngủ tốt sẽ có điểm PSQI {'<'} 5.
         </Text>
-        <Box mt={['12px', '24px']}>
-          <Text as={'i'} fontWeight={'700'} mt={'12px'}>
-            Điểm chất lượng giấc ngủ của bạn:{' '}
-            <chakra.span color={color}>{point}/21</chakra.span>
-          </Text>
-        </Box>
+        {/* <Text as={'i'} fontWeight={'700'} mt={'12px'}>
+          {resultQ1}
+        </Text>
+
         <Text as={'i'} fontWeight={'700'} mt={'12px'}>
-          {message}
-        </Text>
-        <Flex>
-          <Flex
-            minW={['200px', '300px']}
-            mt={['12px', '24px']}
-            direction={'column'}
-            alignItems={'flex-start'}
-            justify={'flex-start'}>
-            <Text as={'i'} mb={'4px'}>
-              Điểm thành phần cụ thể{' '}
-              <chakra.span fontWeight={'700'}>
-                (Thang điểm từ 0 - 3 với 0 là rất tốt và 3 là rất tệ)
-              </chakra.span>
-            </Text>
-            <Text as={'i'}>• Chất lượng giấc ngủ chủ quan: {tp.tp1}</Text>
-            <Text as={'i'}>• Độ trễ giấc ngủ: {tp.tp2}</Text>
-            <Text as={'i'}>• Thời gian ngủ: {tp.tp3}</Text>
-            <Text as={'i'}>• Thói quen ngủ hiệu quả: {tp.tp4}</Text>
-            <Text as={'i'}>• Các rối loạn khi ngủ: {tp.tp5}</Text>
-            <Text as={'i'}>• Sử dụng thuốc ngủ: {tp.tp6}</Text>
-            <Text as={'i'}>• Chất lượng làm việc ban ngày: {tp.tp7}</Text>
-          </Flex>
-        </Flex>
+          {resultQ2}
+        </Text> */}
       </Box>
     )
   }
@@ -137,10 +97,10 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
     id,
     label,
     question,
-    c1 = 'Không lần nào',
-    c2 = '1-3 lần/tháng',
-    c3 = '4-8 lần/tháng',
-    c4 = '≥9 lần/tháng',
+    c1 = 'Không bao giờ',
+    c2 = 'Thỉnh thoảng',
+    c3 = 'Thường xuyên',
+    c4 = 'Luôn luôn',
   ) => {
     return (
       <Wrap>
@@ -203,7 +163,7 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
   }
 
   return (
-    <Box spacing={'12px'}>
+    <Box spacing={'12px'} paddingTop='48px'>
       <Formik
         initialValues={{}}
         onSubmit={handleSubmit}
@@ -219,92 +179,27 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                     <chakra.span fontSize={labelSize} color={'#1e81b0'}>
                       Câu 1:{' '}
                     </chakra.span>
-                    Bạn thường bắt đầu đi ngủ lúc mấy giờ?
+                    Thời gian sử dụng điện thoại của bạn trong một ngày trung bình khoảng bao nhiêu giờ?
                   </Text>
                 </WrapItem>
                 <WrapItem>
-                  <SelectSleepTime
+                  <SelectUsageTime
                     bg={'tdsBgSelect'}
                     ml={'24px'}
                     minW={'150px'}
                     fontSize={ansSize}
-                    placeholder={'Chọn giờ'}
+                    placeholder={'Thời gian sử dụng'}
                     name={'q1'}
                   />
                 </WrapItem>
               </Wrap>
-              {radioQuestion(
-                'q2',
-                'Câu 2: ',
-                'Sau khi lên giường, bạn mất bao lâu để bắt đầu thực sự đi vào giấc ngủ?',
-                '<15 phút',
-                '16 - 30 phút',
-                '31 - 60 phút',
-                '>60 phút'
-              )}
-              <Wrap>
-                <WrapItem minW={questionMinW}>
-                  <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
-                    <chakra.span fontSize={labelSize} color={'#1e81b0'}>
-                      Câu 3:{' '}
-                    </chakra.span>
-                    Bạn thường thức dậy lúc mấy giờ?
-                  </Text>
-                </WrapItem>
-                <WrapItem>
-                  <SelectWakeUpTime
-                    bg={'tdsBgSelect'}
-                    ml={'24px'}
-                    minW={'150px'}
-                    fontSize={ansSize}
-                    placeholder={'Chọn giờ'}
-                    name={'q3'}
-                  />
-                </WrapItem>
-              </Wrap>
-              <Wrap>
-                <WrapItem minW={questionMinW} maxW={'500px'}>
-                  <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
-                    <chakra.span fontSize={labelSize} color={'#1e81b0'}>
-                      Câu 4:{' '}
-                    </chakra.span>
-                    Mỗi đêm, thời gian ngủ thực sự của bạn là bao nhiêu? (tính thời gian ngủ
-                    thực sự, không tính thời gian nằm trên giường nhưng thao
-                    thức, dùng điện thoại,...)
-                  </Text>
-                </WrapItem>
-                <WrapItem>
-                  <SelectField
-                    bg={'tdsBgSelect'}
-                    ml={'24px'}
-                    fontSize={ansSize}
-                    minW={'150px'}
-                    placeholder={'Chọn giờ'}
-                    name={'q4'}>
-                    <option value={3}>3</option>
-                    <option value={3.5}>3.5</option>
-                    <option value={4}>4</option>
-                    <option value={4.5}>4.5</option>
-                    <option value={5}>5</option>
-                    <option value={5.5}>5.5</option>
-                    <option value={6}>6</option>
-                    <option value={6.5}>6.5</option>
-                    <option value={7}>7</option>
-                    <option value={7.5}>7.5</option>
-                    <option value={8}>8</option>
-                    <option value={8.5}>8.5</option>
-                    <option value={9}>9</option>
-                    <option value={9.5}>9.5</option>
-                    <option value={10}>10</option>
-                  </SelectField>
-                </WrapItem>
-              </Wrap>
+
               <Box>
                 <Text fontWeight={'700'} fontSize={quesSize} pr={'12px'}>
                   <chakra.span fontSize={labelSize} color={'#1e81b0'}>
-                    Câu 5:{' '}
+                    Câu 2:{' '}
                   </chakra.span>
-                  Dưới đây là một số vấn đề về giấc ngủ phổ biến. Trong tháng qua, bạn đã gặp các vấn đề này với mức độ thường xuyên như thế nào?
+                  Hãy đánh giá về thói quen sử dụng thiết bị kĩ thuật số của bạn dựa vào mức độ thường xuyên xuất hiện của các hành vi sau:
                 </Text>
                 <Stack
                   mt={['18px', '18px', '20px']}
@@ -312,52 +207,51 @@ const PsqiForm = ({showModal, hideModal, auth, submitPsqi}) => {
                   spacing={'24px'}>
                   {radioQuestion(
                     'q5a',
-                    '1)',
-                    'Mất hơn 30 phút trên giường mới ngủ được'
+                    'a.',
+                    'Dựa vào các thiết bị kĩ thuật số để lưu giữ thông tin và chỉ xem lại khi cần, thay vì quan sát và ghi nhớ'
                   )}
-                  {radioQuestion('q5b', '2)', 'Dậy giữa đêm hoặc gần sáng')}
-                  {radioQuestion('q5c', '3)', 'Dậy dùng nhà vệ sinh')}
-                  {radioQuestion('q5d', '4)', 'Thấy khó thở')}
-                  {radioQuestion('q5e', '5)', 'Ho hoặc ngáy lớn')}
-                  {radioQuestion('q5f', '6)', 'Thấy quá lạnh')}
-                  {radioQuestion('q5g', '7)', 'Thấy quá nóng')}
-                  {radioQuestion('q5h', '8)', 'Gặp ác mộng')}
+                  {radioQuestion(
+                    'q5b',
+                    'b.',
+                    'Dựa vào các thiết bị kĩ thuật số để lưu trữ và ghi nhớ thông tin cá nhân'
+                  )}
+                  {radioQuestion(
+                    'q5c',
+                    'c.',
+                    'Dựa vào các thiết bị kĩ thuật số để lưu trữ và ghi nhớ các nội dung học tập/công việc'
+                  )}
+                  {radioQuestion(
+                    'q5d',
+                    'd.',
+                    'Dựa vào các thiết bị kĩ thuật số để lưu trữ và ghi nhớ các dự định, kế hoạch, thời gian biểu'
+                  )}
+                  {radioQuestion(
+                    'q5e',
+                    'e.',
+                    'Dựa vào các thiết bị kĩ thuật số để lưu trữ và ghi nhớ các thông tin về người thân, bạn bè'
+                  )}
+                  {radioQuestion(
+                    'q5f',
+                    'f.',
+                    'Dựa vào các thiết bị kĩ thuật số để biết cách liên lạc với mọi người'
+                  )}
+                  {radioQuestion(
+                    'q5g',
+                    'g.',
+                    'Dựa vào các thiết bị kĩ thuật số để tìm kiếm thông tin thay vì huy động kiến thức nền có sẵn để suy luận'
+                  )}
+                  {radioQuestion(
+                    'q5h',
+                    'h.',
+                    'Dựa vào thiết bị kĩ thuật số để tìm ra phương án giải quyết vấn đề thay vì tự suy luận'
+                  )}
                   {radioQuestion(
                     'q5i',
-                    '9)',
-                    'Bị đau một bộ phận nào đó khi ngủ (lưng, gáy,...)'
+                    'i.',
+                    'Dựa vào thiết bị kĩ thuật số để tìm ý tưởng thay vì quan sát thực tế và phát huy sự sáng tạo cá nhân'
                   )}
-                  {radioQuestion('q5j', '10)', 'Gặp vấn đề khác về giấc ngủ')}
                 </Stack>
               </Box>
-              {radioQuestion(
-                'q6',
-                'Câu 6:',
-                'Trong tháng vừa rồi, bạn có phải dùng thuốc (đông y, tây y,...) để hỗ trợ giấc ngủ không?'
-              )}
-              {radioQuestion(
-                'q7',
-                'Câu 7:',
-                'Trong tháng qua, bạn có bị mất tỉnh táo khi tham gia các hoạt động học tập, sinh hoạt, lái xe,...không?'
-              )}
-              {radioQuestion(
-                'q8',
-                'Câu 8:',
-                'Trong tháng qua, việc thiếu ngủ có gây ảnh hưởng đến chất lượng học tập và sinh hoạt của bạn không?',
-                'Không thường gặp',
-                'Thỉnh thoảng, không phải vấn đề lớn',
-                'Cản trở học tập, sinh hoạt một chút',
-                'Vấn đề lớn, không thể học tập, sinh hoạt tốt được'
-              )}
-              {radioQuestion(
-                'q9',
-                'Câu 9:',
-                'Bạn tự đánh giá chất lượng giấc ngủ của bản thân trong tháng vừa qua như thế nào?',
-                'Rất tốt',
-                'Tốt',
-                'Tệ',
-                'Rất tệ'
-              )}
             </Stack>
 
             {!result ? (

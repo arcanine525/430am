@@ -8,8 +8,10 @@ const MiniHeader = () => {
       <Stack
         w={'full'}
         // h={['160px', '454px']}
-        h={['100px', '350px']}
-        backgroundImage={'img/img_header.png'}
+        h={['100px', '400px']}
+        backgroundImage={'img/img_header.jpeg'}
+        // backgroundImage={'img/header.svg'}
+
         backgroundSize={'cover'}
         backgroundPosition={'center center'}
       />

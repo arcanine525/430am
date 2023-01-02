@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "am-7b7cb"
-  }
+    "digital-dementia": "digital-dementia"
+  },
+  "targets": {},
+  "etags": {}
 }

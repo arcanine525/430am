@@ -1,9 +1,6 @@
 export const calculatePsqi = async answer => {
   const {
     q1,
-    q2,
-    q3,
-    q4,
     q5a,
     q5b,
     q5c,
@@ -13,57 +10,52 @@ export const calculatePsqi = async answer => {
     q5g,
     q5h,
     q5i,
-    q5j,
-    q6,
-    q7,
-    q8,
-    q9,
   } = answer
 
-  const sleepHourQ3Q1 = (q3 - q1) / 1000 / 60 / 60
-  console.log(
-    '\x1b[36m',
-    '🐣️ calculate psqi | calculate sleep hour | : ',
-    sleepHourQ3Q1,
-    '\x1b[0m'
-  )
+  // const {
+  //   q1,
+  //   ...ansQ2
+  // } = answer
 
-  const tp1 = q9
-  const tp2 = Math.ceil((q2 + q5a) / 2)
 
-  let tp3
-  if (q4 >= 7) tp3 = 0
-  else if (q4 >= 6) tp3 = 1
-  else if (q4 >= 5) tp3 = 2
-  else tp3 = 3
+  // console.log('\x1b[36m', '🐣️ calculate psqi | tp | : ', tp, '\x1b[0m')
+  let point = 0
+  let resultQ1 = ''
+  if (q1 === '<5') {
+    resultQ1 = 'Thời gian sử dụng điện thoại của bạn ở mức thấp, nếu không phát sinh nhu cầu cần thiết phải dùng nhiều hơn thì có thể duy trì ở mức này nhé!'
+  }
+  if (q1 === '5-7') {
+    resultQ1 = 'Thời gian sử dụng điện thoại của bạn ở mức trung bình, nếu không phát sinh nhu cầu cần thiết phải dùng nhiều hơn thì nên duy trì ở mức này nhé!'
+  }
+  if (q1 === '7-10') {
+    resultQ1 = 'Thời gian sử dụng điện thoại của bạn khá nhiều, nếu không phải vì nhu cầu cần thiết bạn nên điều chỉnh thời gian để đảm bảo sức khỏe nhé!'
+  }
+  if (q1 === '>10') {
+    resultQ1 = 'Thời gian sử dụng điện thoại của bạn quá nhiều, nếu không phải vì nhu cầu cần thiết bạn nên điều chỉnh thời gian để đảm bảo sức khỏe nhé!'
+  }
 
-  let tp4
-  const tp4percent = Math.min(1, q4 / sleepHourQ3Q1)
-  if (tp4percent >= 0.85) tp4 = 0
-  else if (tp4percent >= 0.75) tp4 = 1
-  else if (tp4percent >= 0.65) tp4 = 2
-  else tp4 = 3
+  let answerList = [q5a, q5b, q5c, q5d, q5e, q5f, q5g, q5h, q5i]
+  let resultQ2 = ''
+  const c1 = answerList.filter((val) => val = 1).length // c1 = 'Không bao giờ',
+  const c2 = answerList.filter((val) => val = 2).length // c2 = 'Thỉnh thoảng',
+  const c3 = answerList.filter((val) => val = 3).length // c3 = 'Thường xuyên',
+  const c4 = answerList.filter((val) => val = 4).length // c4 = 'Luôn luôn',
 
-  let tp5
-  const tp5Sum = q5b + q5c + q5d + q5e + q5f + q5g + q5h + q5i + q5j
-  if (tp5Sum >= 19) tp5 = 3
-  else if (tp5Sum >= 10) tp5 = 2
-  else if (tp5Sum >= 1) tp5 = 1
-  else tp5 = 0
+  if (c3 < 3 || c4 < 3) {
+    resultQ2 = 'Mức độ phụ thuộc trí nhớ và tư duy vào thiết bị kĩ thuật số của bạn ở mức cơ bản, chưa đáng báo động. Hãy tiếp tục duy trì mức độ này, hoặc nếu có thể hãy tập thói quen chủ động tư duy nhiều thêm nhé!'
+  }
 
-  const tp6 = q6
-  const tp7 = Math.ceil((q7 + q8) / 2)
+  if (c3 >=3 || c4 >= 3) {
+    resultQ2 = 'Mức độ phụ thuộc trí nhớ và tư duy vào thiết bị kĩ thuật số của bạn ở mức khá cao. Hãy tập thói quen chủ động tư duy nhiều hơn nhé!'
+  }
 
-  const tp = {tp1, tp2, tp3, tp4, tp5, tp6, tp7}
-  const point = tp1 + tp2 + tp3 + tp4 + tp5 + tp6 + tp7
-
-  console.log('\x1b[36m', '🐣️ calculate psqi | tp | : ', tp, '\x1b[0m')
+  if (c3 > 5 || c4 > 5){
+    resultQ2 = 'Mức độ phụ thuộc trí nhớ và tư duy vào thiết bị kĩ thuật số của bạn ở mức khá cao. Hãy tập thói quen chủ động tư duy nhiều hơn nhé!'
+  }
 
   const color = point >= 5 ? 'red' : 'green'
-  const message =
-    point >= 5
-      ? 'Tháng vừa qua, chất lượng giấc ngủ của bạn không tốt!'
-      : 'Tháng vừa qua, chất lượng giấc ngủ của bạn tốt! Hãy duy trì giấc ngủ hiện tại để luôn có nền tảng sức khỏe tốt nhé.'
 
-  return {point, message, color, tp}
+  // const message = resultQ1 + ' ' + resultQ2
+
+  return { resultQ1, resultQ2, color }
 }
